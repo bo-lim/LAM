@@ -1,15 +1,34 @@
+from PyQt5.QtCore import Qt, QCoreApplication, pyqtSlot, QTimer, pyqtSlot
+from PyQt5 import QtWidgets, uic
+from PyQt5.QtWidgets import *
+from PyQt5.QtGui import *
+import matplotlib.pyplot as plt
+from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg as FigureCanvas
+from datetime import datetime
+import sys, io, cv2
+import random, pathlib, os
+from fastai.vision.all import *
+from fastai.vision.widgets import *
+from logic.calculate import *
+
+from google.cloud import vision
+from google.cloud.vision_v1 import types
+from PIL import ImageGrab
+import pathlib, os
+
 
 now = datetime.now().strftime('%Y-%m-%d_%H%M')
 
 
 class stat_app(QDialog):
 
-    def __init__(self):
+    def __init__(self, className):
         super().__init__()
         self.setVisible(True)
         self.student_stat = None
         self.class_stat = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         self.time_class = None
+        self.className = className
         self.initUI()
 
     def initUI(self):
@@ -23,7 +42,7 @@ class stat_app(QDialog):
         # Graph drawing
         self.fig = plt.Figure()
         ax = self.fig.add_subplot(111)
-        ax.set_title(ex.className + "\n" + now + "\n" + "Class Attention Guage")
+        ax.set_title(self.className + "\n" + now + "\n" + "Class Attention Guage")
         ax.set_xlabel('Time(divided by 10)')
         ax.set_ylabel('Guage')
         self.time_class = list(range(len(self.class_stat)))
@@ -88,7 +107,7 @@ class stat_app(QDialog):
         print("Export 버튼의 정보")
         print(self.class_stat)
         print(self.student_stat)
-        f = open(ex.className + '_csv' + now + '_result.csv', 'w', encoding="UTF-8")
+        f = open(self.className + '_csv' + now + '_result.csv', 'w', encoding="UTF-8")
         f.write('time' + ',' + 'avg' + '\n')
         row = 0
         for value, row in zip(self.class_stat, range(len(self.class_stat))):
@@ -99,4 +118,4 @@ class stat_app(QDialog):
         for key, value in self.student_stat.items():
             f.write(key + ',' + str(value[0]) + ',' + str(value[1]) + '\n')
         f.close()
-        self.fig.savefig(ex.className + '_jpg' + now + '_graph.jpg')
+        self.fig.savefig(self.className + '_jpg' + now + '_graph.jpg')

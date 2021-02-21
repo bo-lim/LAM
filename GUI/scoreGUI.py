@@ -9,6 +9,8 @@ import sys, io, cv2
 import random, pathlib, os
 from fastai.vision.all import *
 from fastai.vision.widgets import *
+from dataProcessing.capture import *
+from GUI.resultGUI import *
 
 from google.cloud import vision
 from google.cloud.vision_v1 import types
@@ -35,7 +37,7 @@ def getInfo(dir_list, dataPath, path):
 
 class MyApp2(QDialog):
 
-    def __init__(self, processed_inputs, path):
+    def __init__(self, processed_inputs, path, className):
         super().__init__()
         print("myapp2 init 들어옴")
         self.show()
@@ -46,6 +48,7 @@ class MyApp2(QDialog):
         self.dir_list = None
         self.time_class = list(range(len(class_stat)))
         self.path = path
+        self.className = className
 
     def initUI(self):
         # 라벨 평균
@@ -130,10 +133,10 @@ class MyApp2(QDialog):
     def timeout_run(self):
         print("timeout 들어옴")
         # 캡쳐하는 부분
-        capture(ex.className)
+        capture(self.className)
 
         # 캡쳐된 사진을 모델에 돌리고 다시 삭제하는 부분
-        dataPath = './' + ex.className + '/students'  # dataset folder
+        dataPath = './result/' + self.className + '/students'  # dataset folder
         dir_list = os.listdir(dataPath)
         getInfo(dir_list, dataPath,self.path)
 
@@ -164,8 +167,8 @@ class MyApp2(QDialog):
         self.hide()
         self.timer.stop()
         print("Quit button Clicked")
-        dlg = stat_app()
-        class_title = ex.className
+        dlg = stat_app(self.className)
+        # class_title = self.className
         dlg.exec_()
 
     def change_inputs(self, changed_inputs):

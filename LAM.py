@@ -14,7 +14,7 @@ from PyQt5.QtGui import *
 # from google.cloud import vision
 # from google.cloud.vision_v1 import types
 # from PIL import ImageGrab
-# import pathlib, os
+import pathlib
 
 import sys,os
 from fastai.vision.all import *
@@ -74,10 +74,11 @@ class MyApp1(QWidget):
     def button1Function(self):
         print("Start button Clicked")
         self.hide()
-        createFolder('./' + self.className + '/students')
-        createFolder('./' + self.className + '/temp')
+        createFolder('./result/' + self.className + '/students')
+        createFolder('./result/' + self.className + '/students')
+        createFolder('./result/' + self.className + '/temp')
         processed_inputs = inputs_process(inputs)
-        dlg = MyApp2(processed_inputs,path)
+        dlg = MyApp2(processed_inputs,path, self.className)
         dlg.exec_()
 
     # test입력창
@@ -107,6 +108,8 @@ class person(object):
 inputs = (
 50, {person(" "): 0, person(" "): 0, person(" "): 0, person(" "): 0, person(" "): 0, person(" "): 0, person(" "): 0})
 
+temp = pathlib.PosixPath
+pathlib.PosixPath = pathlib.WindowsPath
 
 app = QApplication(sys.argv)
 path = Path()

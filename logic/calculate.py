@@ -1,3 +1,21 @@
+from PyQt5.QtCore import Qt, QCoreApplication, pyqtSlot, QTimer, pyqtSlot
+from PyQt5 import QtWidgets, uic
+from PyQt5.QtWidgets import *
+from PyQt5.QtGui import *
+import matplotlib.pyplot as plt
+from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg as FigureCanvas
+from datetime import datetime
+import sys, io, cv2
+import random, pathlib, os
+from fastai.vision.all import *
+from fastai.vision.widgets import *
+from logic.calculate import *
+
+from google.cloud import vision
+from google.cloud.vision_v1 import types
+from PIL import ImageGrab
+import pathlib, os
+
 def inputs_process(inputs):
     average_score = inputs[0]
     scores = inputs[1]
@@ -97,3 +115,10 @@ def final_output():
 
 
 student_stat = {' ': (0, 0), ' ': (0, 0), ' ': (0, 0), ' ': (0, 0)}
+#metrics 변수선언
+students_input=dict()
+
+st_Obj_list=list() # 학생 개체 모음
+average_score_list=list() # 평균 점수 기록
+
+

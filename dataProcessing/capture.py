@@ -17,7 +17,7 @@ from PIL import ImageGrab
 import pathlib, os
 
 
-os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = "./files/zoomCapture-b179ff82aa06.json"
+os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = "./dataProcessing/files/zoomCapture-b179ff82aa06.json"
 
 
 def capture(classDir):
