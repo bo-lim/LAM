@@ -51,10 +51,9 @@ class MyApp2(QDialog):
         self.className = className
 
     def initUI(self):
-        # 라벨 평균
-
+        # 라벨 평균 
         print(self.inputs)
-        self.text0 = str(self.inputs[0])
+        self.text0 = str(round(self.inputs[0],1))
         self.label0 = QLabel(self.text0, self)
         self.label0.setAlignment(Qt.AlignCenter)  # 위치(중앙)
         font = self.label0.font()
@@ -76,7 +75,6 @@ class MyApp2(QDialog):
         font = self.label2.font()
         font.setPointSize(20)
         self.label2.setFont(font)
-        self.label2.setAlignment(Qt.AlignVCenter)
 
         # 라벨 3
         self.text3 = str(self.inputs[1][2][0]) + ' ' + str(self.inputs[1][2][1])
@@ -124,7 +122,7 @@ class MyApp2(QDialog):
         self.timer.timeout.connect(self.timeout_run)  # 화면 갱신 함수
 
         # 스크린 기본 설정
-        self.setWindowTitle('My First Application')  # 제목
+        self.setWindowTitle('LAM')  # 제목
         self.setGeometry(1700, -10, 100, 2000)  # 스크린 위치와 크기
         self.show()  # 스크린 출력
 
@@ -149,7 +147,7 @@ class MyApp2(QDialog):
         # inputs를 갱신시킵니다
         self.inputs = inputs_process(current_output())
 
-        self.text0 = str(self.inputs[0])
+        self.text0 = str(round(self.inputs[0],1))
         self.label0.setText(self.text0)
         self.text1 = str(self.inputs[1][0][0]) + ' ' + str(self.inputs[1][0][1])
         self.label1.setText(self.text1)
