@@ -67,14 +67,14 @@ class MyApp1(QWidget):
 
         # 제목 및 시작위치, 사이즈
 
-        self.setWindowTitle('Group D Project')
+        self.setWindowTitle('LAM')
         self.setGeometry(300, 300, 300, 200)
 
     # btn1이 눌리면 작동할 함수
     def button1Function(self):
         print("Start button Clicked")
         self.hide()
-        createFolder('./result/' + self.className + '/students')
+        createFolder('./result/' + self.className + '/chart')
         createFolder('./result/' + self.className + '/students')
         createFolder('./result/' + self.className + '/temp')
         processed_inputs = inputs_process(inputs)
