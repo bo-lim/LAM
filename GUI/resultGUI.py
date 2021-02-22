@@ -9,7 +9,7 @@ import sys, io, cv2
 import random, pathlib, os
 from fastai.vision.all import *
 from fastai.vision.widgets import *
-from logic.calculate import *
+#from logic.calculate import *
 
 from google.cloud import vision
 from google.cloud.vision_v1 import types
@@ -107,7 +107,11 @@ class stat_app(QDialog):
         print("Export 버튼의 정보")
         print(self.class_stat)
         print(self.student_stat)
-        f = open(self.className + '_csv' + now + '_result.csv', 'w', encoding="UTF-8")
+        
+        QMessageBox.about(self, "LAM", "File Exported!\n")
+
+        
+        f = open('./result/'+self.className + '/chart/'+self.className + now + '_result.csv', 'w', encoding="UTF-8")
         f.write('time' + ',' + 'avg' + '\n')
         row = 0
         for value, row in zip(self.class_stat, range(len(self.class_stat))):
@@ -118,4 +122,7 @@ class stat_app(QDialog):
         for key, value in self.student_stat.items():
             f.write(key + ',' + str(value[0]) + ',' + str(value[1]) + '\n')
         f.close()
-        self.fig.savefig(self.className + '_jpg' + now + '_graph.jpg')
+        self.fig.savefig('./result/'+self.className + '/chart/'+self.className + now + '_graph.jpg')
+
+ 
+
