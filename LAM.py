@@ -3,13 +3,13 @@ from PyQt5.QtCore import Qt, QCoreApplication, pyqtSlot, QTimer, pyqtSlot
 # from PyQt5 import QtWidgets, uic
 from PyQt5.QtWidgets import *
 from PyQt5.QtGui import *
-# import matplotlib.pyplot as plt
-# from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg as FigureCanvas
-# from datetime import datetime
-# import sys, io, cv2
-# import random, pathlib, os
-# from fastai.vision.all import *
-# from fastai.vision.widgets import *
+import matplotlib.pyplot as plt
+from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg as FigureCanvas
+from datetime import datetime
+import sys, io, cv2
+import random, pathlib, os
+from fastai.vision.all import *
+from fastai.vision.widgets import *
 
 # from google.cloud import vision
 # from google.cloud.vision_v1 import types
@@ -109,7 +109,7 @@ inputs = (
 50, {person(" "): 0, person(" "): 0, person(" "): 0, person(" "): 0, person(" "): 0, person(" "): 0, person(" "): 0})
 
 temp = pathlib.PosixPath
-pathlib.PosixPath = pathlib.WindowsPath
+# pathlib.PosixPath = pathlib.WindowsPath
 
 app = QApplication(sys.argv)
 path = Path()

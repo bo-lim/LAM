@@ -9,7 +9,7 @@ import sys, io, cv2
 import random, pathlib, os
 from fastai.vision.all import *
 from fastai.vision.widgets import *
-#from logic.calculate import *
+from logic.calculate import *
 
 from google.cloud import vision
 from google.cloud.vision_v1 import types

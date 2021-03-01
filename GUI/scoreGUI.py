@@ -11,7 +11,7 @@ from fastai.vision.all import *
 from fastai.vision.widgets import *
 from dataProcessing.capture import *
 from GUI.resultGUI import *
-
+from logic.calculate import *
 from google.cloud import vision
 from google.cloud.vision_v1 import types
 from PIL import ImageGrab
@@ -131,7 +131,7 @@ class MyApp2(QDialog):
     def timeout_run(self):
         print("timeout 들어옴")
         # 캡쳐하는 부분
-        capture(self.className)
+        capture('./result/'+self.className)
 
         # 캡쳐된 사진을 모델에 돌리고 다시 삭제하는 부분
         dataPath = './result/' + self.className + '/students'  # dataset folder
