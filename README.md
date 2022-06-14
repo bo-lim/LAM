@@ -3,7 +3,7 @@
 
 ## [LandingPage](https://ant67410.wixsite.com/attentiongauge)
 ## [Pitch Deck](https://github.com/bo-lim/LAM/blob/main/assets/LAM_pitchDeck.pptx)
-## [Detail] (https://github.com/bo-lim/LAM/blob/main/assets/peoplespace.pptx)
+## [Detail](https://github.com/bo-lim/LAM/blob/main/assets/peoplespace.pptx)
 
 ## Problem
 1. Hard to check audiences' overall understanding.
