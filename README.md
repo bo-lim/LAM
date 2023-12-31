@@ -2,8 +2,8 @@
 ## PeopleSpace Internship(2021 Winter vacation)
 
 ## [LandingPage](https://ant67410.wixsite.com/attentiongauge)
-## [Pitch Deck](https://github.com/bo-lim/LAM/blob/main/assets/LAM_pitchDeck.pptx)
-## [Detail](https://github.com/bo-lim/LAM/blob/main/assets/peoplespace.pptx)
+## [Pitch Deck](https://github.com/bo-lim/LAM/blob/be8ac593ff249e9f366c1e6ab112008e7ebdb94e/assets/LAM_pitchDeck.pdf)
+## [Presentation](https://github.com/bo-lim/LAM/blob/be8ac593ff249e9f366c1e6ab112008e7ebdb94e/assets/peoplespace_ppt.pdf)
 
 ## Problem
 1. Hard to check audiences' overall understanding.
